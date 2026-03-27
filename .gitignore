@@ -1,0 +1,33 @@
+# =====================
+# Código compilado Java
+# =====================
+*.class
+out/
+bin/
+target/
+
+# =====================
+# Arquivos jar gerados
+# =====================
+*.jar
+
+# =====================
+# IDEs
+# =====================
+.idea/
+*.iml
+.vscode/
+
+# =====================
+# Arquivos temporários
+# =====================
+*.log
+*.tmp
+*.swp
+*.DS_Store
+
+# =====================
+# Banco de dados local real (ignorando, mas mantendo o .sql de estrutura)
+# =====================
+*.db
+*.sqlite

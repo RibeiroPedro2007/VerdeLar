@@ -1,0 +1,461 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package br.login.view;
+
+import javax.swing.JButton;
+import javax.swing.plaf.basic.BasicButtonUI;
+
+/**
+ *
+ * @author Home
+ */
+public class CadastroView extends javax.swing.JFrame {
+    
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(CadastroView.class.getName());
+
+    /**
+     * Creates new form LoginView
+     */
+    public CadastroView() {
+        initComponents();
+        /* 1. Configurações da Janela e Escala */
+        this.setExtendedState(java.awt.Frame.MAXIMIZED_BOTH); // Maximiza a tela
+        jPanel2.setPreferredSize(new java.awt.Dimension(1100, 700)); // Tamanho base
+        
+        // Calcula a proporção da tela
+        java.awt.Toolkit tk = java.awt.Toolkit.getDefaultToolkit();
+        double ratio = Math.min(tk.getScreenSize().getWidth() / 1366.0, tk.getScreenSize().getHeight() / 768.0);
+        aplicarEscala(this.getContentPane(), ratio); // Aplica o zoom
+        
+        // Define o Layout Principal
+        this.getContentPane().setLayout(new java.awt.GridBagLayout());
+        this.getContentPane().setBackground(new java.awt.Color(30, 60, 42));
+        this.getContentPane().add(jPanel2); 
+ 
+        // Arruma o visual dos botões
+        btnCadastro.setUI(new javax.swing.plaf.basic.BasicButtonUI());
+        btnVoltar.setUI(new javax.swing.plaf.basic.BasicButtonUI());
+        
+        /* 2. Arrumando o Painel do Formulário (Centro) */
+        jPanelCenter.setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagConstraints gbc = new java.awt.GridBagConstraints();
+        
+        gbc.gridx = 0; 
+        gbc.gridy = 0; 
+        gbc.weightx = 1.0; 
+        
+        // --- A. Botão Voltar (Topo Esquerda) ---
+        gbc.anchor = java.awt.GridBagConstraints.WEST; // Alinha à esquerda
+        gbc.fill = java.awt.GridBagConstraints.NONE;   // Não estica
+        gbc.insets = new java.awt.Insets(0, 50, 0, 0); // Margem do topo e esquerda
+        jPanelCenter.add(btnVoltar, gbc);
+        
+        // --- B. Título "Cadastro" (Centralizado) ---
+        gbc.gridy++; // Próxima linha
+        gbc.anchor = java.awt.GridBagConstraints.CENTER;
+        gbc.insets = new java.awt.Insets(0, 0, 0, 0); 
+        jPanelCenter.add(jLabel4, gbc);
+
+        // --- C. Campos (Esticados) ---
+        gbc.fill = java.awt.GridBagConstraints.HORIZONTAL; 
+        gbc.insets = new java.awt.Insets(5, 80, 5, 80); // Margens laterais grandes (80)
+
+        // Nome
+        gbc.gridy++;
+        jPanelCenter.add(jLabel1, gbc);
+        gbc.gridy++;
+        jPanelCenter.add(txtNome, gbc);
+        gbc.gridy++;
+        jPanelCenter.add(jSeparator1, gbc);
+        
+        // E-mail
+        gbc.gridy++;
+        gbc.insets = new java.awt.Insets(20, 80, 5, 80); // Espaço extra antes do título
+        jPanelCenter.add(jLabel3, gbc);
+        gbc.insets = new java.awt.Insets(5, 80, 5, 80); // Volta ao normal
+        gbc.gridy++;
+        jPanelCenter.add(txtEmail, gbc);
+        gbc.gridy++;
+        jPanelCenter.add(jSeparator2, gbc);
+        
+        // Senha
+        gbc.gridy++;
+        gbc.insets = new java.awt.Insets(20, 80, 5, 80);
+        jPanelCenter.add(jLabel2, gbc);
+        gbc.insets = new java.awt.Insets(5, 80, 5, 80);
+        gbc.gridy++;
+        jPanelCenter.add(txtSenha, gbc);
+        gbc.gridy++;
+        jPanelCenter.add(jSeparator3, gbc);
+        
+        // --- D. Botão Cadastrar (Direita) ---
+        gbc.gridy++;
+        gbc.fill = java.awt.GridBagConstraints.NONE;
+        gbc.anchor = java.awt.GridBagConstraints.EAST; // Alinha à direita
+        gbc.insets = new java.awt.Insets(40, 80, 40, 80); // Margem grande embaixo
+        btnCadastro.setPreferredSize(new java.awt.Dimension(150, 45)); 
+        jPanelCenter.add(btnCadastro, gbc);
+        
+        /* 3. Arrumando o Painel do Logo (Esquerda) */
+        jPanelWest.setLayout(new java.awt.GridBagLayout());
+        java.awt.GridBagConstraints gbcSide = new java.awt.GridBagConstraints();
+        gbcSide.gridx = 0;
+        gbcSide.gridy = 0;
+        
+        gbcSide.insets = new java.awt.Insets(0, -80, 20, 0); // Ajuste fino para esquerda
+        jPanelWest.add(jLabel6, gbcSide); // Texto "VerdeLar"
+        
+        gbcSide.gridy++;
+        gbcSide.insets = new java.awt.Insets(0, -80, 0, 0);
+        jPanelWest.add(jLabel5, gbcSide); // Imagem Logo
+        
+        // Atualiza a tela
+        jPanelCenter.revalidate();
+        jPanelCenter.repaint();
+        jPanelWest.revalidate();
+        jPanelWest.repaint();
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel2 = new javax.swing.JPanel();
+        jPanelWest = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jPanelCenter = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        txtSenha = new javax.swing.JPasswordField();
+        txtEmail = new javax.swing.JTextField();
+        btnCadastro = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        btnVoltar = new javax.swing.JButton();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jPanelWest.setBackground(new java.awt.Color(30, 60, 42));
+        jPanelWest.setPreferredSize(new java.awt.Dimension(600, 702));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/logo.png"))); // NOI18N
+
+        jLabel6.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 70)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("VerdeLar");
+
+        javax.swing.GroupLayout jPanelWestLayout = new javax.swing.GroupLayout(jPanelWest);
+        jPanelWest.setLayout(jPanelWestLayout);
+        jPanelWestLayout.setHorizontalGroup(
+            jPanelWestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelWestLayout.createSequentialGroup()
+                .addGroup(jPanelWestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelWestLayout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanelWestLayout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addComponent(jLabel6)))
+                .addContainerGap(131, Short.MAX_VALUE))
+        );
+        jPanelWestLayout.setVerticalGroup(
+            jPanelWestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelWestLayout.createSequentialGroup()
+                .addContainerGap(59, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(50, 50, 50)
+                .addComponent(jLabel5)
+                .addGap(110, 110, 110))
+        );
+
+        jPanel2.add(jPanelWest, java.awt.BorderLayout.WEST);
+
+        jPanelCenter.setBackground(new java.awt.Color(255, 255, 255));
+        jPanelCenter.setPreferredSize(new java.awt.Dimension(500, 702));
+
+        jLabel1.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1.setText("Nome");
+
+        jLabel2.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2.setText("Senha");
+
+        txtSenha.setBackground(new java.awt.Color(255, 255, 255));
+        txtSenha.setBorder(null);
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSenhaActionPerformed(evt);
+            }
+        });
+
+        txtEmail.setBackground(new java.awt.Color(255, 255, 255));
+        txtEmail.setBorder(null);
+
+        btnCadastro.setBackground(new java.awt.Color(0, 0, 0));
+        btnCadastro.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        btnCadastro.setForeground(new java.awt.Color(255, 255, 255));
+        btnCadastro.setText("Cadastrar");
+        btnCadastro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCadastro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCadastroActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3.setText("E-mail");
+        jLabel3.setToolTipText("");
+
+        txtNome.setBackground(new java.awt.Color(255, 255, 255));
+        txtNome.setBorder(null);
+
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+
+        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
+
+        jSeparator3.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator3.setForeground(new java.awt.Color(0, 0, 0));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 418, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 100, Short.MAX_VALUE)
+        );
+
+        jLabel4.setFont(new java.awt.Font("Franklin Gothic Medium", 1, 36)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4.setText("Cadastrar-se");
+
+        btnVoltar.setBackground(new java.awt.Color(255, 255, 255));
+        btnVoltar.setFont(new java.awt.Font("Franklin Gothic Medium", 0, 18)); // NOI18N
+        btnVoltar.setForeground(new java.awt.Color(51, 51, 51));
+        btnVoltar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/arrow back.png"))); // NOI18N
+        btnVoltar.setText("Voltar");
+        btnVoltar.setBorder(null);
+        btnVoltar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnVoltar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVoltarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanelCenterLayout = new javax.swing.GroupLayout(jPanelCenter);
+        jPanelCenter.setLayout(jPanelCenterLayout);
+        jPanelCenterLayout.setHorizontalGroup(
+            jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addGap(105, 105, 105)
+                .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNome)
+                    .addComponent(jLabel1)
+                    .addComponent(jSeparator1)
+                    .addComponent(txtEmail)
+                    .addComponent(jSeparator2)
+                    .addComponent(txtSenha, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
+                    .addComponent(jSeparator3))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCenterLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(174, 174, 174))
+            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addGap(145, 145, 145)
+                .addComponent(jLabel4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addContainerGap(41, Short.MAX_VALUE)
+                .addGroup(jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnVoltar, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(41, Short.MAX_VALUE))
+        );
+        jPanelCenterLayout.setVerticalGroup(
+            jPanelCenterLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCenterLayout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(btnVoltar)
+                .addGap(43, 43, 43)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(19, 19, 19)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(74, 74, 74)
+                .addComponent(btnCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
+        );
+
+        jPanel2.add(jPanelCenter, java.awt.BorderLayout.CENTER);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, 0)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSenhaActionPerformed
+
+    private void btnCadastroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroActionPerformed
+        String nome = txtNome.getText();
+        String email = txtEmail.getText();
+        String senha = new String(txtSenha.getPassword());
+
+        //se algum campo tiver vazio
+        if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Preencha todos os campos!");
+            return;
+        }
+
+        br.login.model.Login novo = new br.login.model.Login();
+        novo.cadastrar(nome, email, senha);
+
+        br.login.dao.LoginDAO dao = new br.login.dao.LoginDAO();
+
+        if (dao.inserir(novo)) {
+            javax.swing.JOptionPane.showMessageDialog(this, "Usuário cadastrado com sucesso!");
+
+            //Guarda o e-mail na sessão pra salvar as escolhas depois
+            br.login.dao.Sessao.emailUsuarioLogado = email;
+
+            //Fecha o cadastro
+            this.dispose();
+
+            //Abre a tela de escolha de nível
+            new br.login.view.NívelView().setVisible(true);
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(this, "Erro ao cadastrar. Email já existe?");
+        }
+    }//GEN-LAST:event_btnCadastroActionPerformed
+
+    private void btnVoltarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVoltarActionPerformed
+        // TODO add your handling code here:
+        this.dispose(); // fecha o cadastro
+        new br.login.view.LoginView().setVisible(true); // volta pra tela de login
+    }//GEN-LAST:event_btnVoltarActionPerformed
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
+            logger.log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(() -> new CadastroView().setVisible(true));
+    }
+    
+    private void aplicarEscala(java.awt.Container container, double ratio) {
+        for (java.awt.Component c : container.getComponents()) {
+            
+            // 1. Aumentar a fonte
+            if (c.getFont() != null) {
+                java.awt.Font fonteAtual = c.getFont();
+                float novoTamanho = (float) (fonteAtual.getSize() * ratio);
+                c.setFont(fonteAtual.deriveFont(novoTamanho));
+            }
+
+            // 2. Aumentar o tamanho dos componentes (se tiverem tamanho preferido fixo)
+            if (c.isPreferredSizeSet()) {
+                java.awt.Dimension d = c.getPreferredSize();
+                int novaLargura = (int) (d.width * ratio);
+                int novaAltura = (int) (d.height * ratio);
+                c.setPreferredSize(new java.awt.Dimension(novaLargura, novaAltura));
+            }
+            
+            // 3. Recursividade: se for um painel, entra nele e escala os filhos
+            if (c instanceof java.awt.Container) {
+                aplicarEscala((java.awt.Container) c, ratio);
+            }
+        }
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCadastro;
+    private javax.swing.JButton btnVoltar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanelCenter;
+    private javax.swing.JPanel jPanelWest;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JPasswordField txtSenha;
+    // End of variables declaration//GEN-END:variables
+}
